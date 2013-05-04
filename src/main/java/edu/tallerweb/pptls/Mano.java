@@ -10,8 +10,13 @@ public class Mano {
 	 * la que determine su condición en el juego.
 	 * @param forma, la Forma que adopta la Mano.
 	 */
+	
+	private Forma formaJugador;
+	
 	public Mano(final Forma forma) {
-		throw new RuntimeException("No implementado aún");
+		
+	this.formaJugador=forma;
+	
 	}
 
 	/**
@@ -20,8 +25,26 @@ public class Mano {
 	 * @param otra, la otra Mano.
 	 * @return un Resultado, de acuerdo al estado del juego.
 	 */
+	
 	public Resultado jugarCon(final Mano otra) {
-		throw new RuntimeException("No implementado aún");
+		
+		
+		
+	int valorJugadorUno=this.formaJugador.getValor();
+	int valorJugadorDos=otra.formaJugador.getValor();
+	
+	if(valorJugadorUno==valorJugadorDos){
+		
+		return Resultado.EMPATA;
+	}
+	
+	if(valorJugadorUno==(valorJugadorDos+1)%5||valorJugadorUno==(valorJugadorDos+2)%5){
+		
+		return Resultado.GANA;
+		
+	}
+	else return Resultado.PIERDE;
+		
 	}
 
 }
